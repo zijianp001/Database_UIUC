@@ -4,8 +4,8 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-| TeamID      |        Team-000        |
-| TeamName    |         sample         |
+| TeamID      |        Team-103        |
+| TeamName    |    GeniusProgrammers   |
 | Captain     |       Zijian Pei       |
 | Captain     |  zijianp3@illinois.edu |
 | Member1     |       Zhanyu Feng      |
