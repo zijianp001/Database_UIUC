@@ -1,4 +1,4 @@
-# Q-team000-sample
+# Q-team103-GeniusProgrammers
 
 ## Basic Information
 
@@ -19,7 +19,7 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-|  Title      |       ProjectTitle     |
+|  Title      |        PC Builder      |
 | System URL  |      link_to_system    |
 | Video Link  |      link_to_video     |
 
