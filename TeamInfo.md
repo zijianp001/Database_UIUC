@@ -25,4 +25,4 @@
 
 ## Project Summary
 
-This is a summary of the project!
+Team 103 is developing a platform to help clients select computer accessories. The platform is believed to be able to check the compatibility between two accessories of a computer and compute a performance score of the customized computer. Our project includes a user interface and a backend development including database manipulation. The project is separated into different stages, and we will post our work on website when we accomplish the goal of each stage.
