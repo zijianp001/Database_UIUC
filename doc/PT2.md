@@ -9,11 +9,11 @@
 
 
 
-![](ER.png)
+![](C:\users\jixua\OneDrive\Desktop\Untitled Diagram.drawio.png))
 
 <div style="page-break-after: always;"></div>
 
-# Entity Description:
+# Assumption and Entity Description:
 
 
 
@@ -25,13 +25,13 @@
 
 ## CPU: 
 
-​	CPU is a sub-entity of Product, it is uniquely identified by ProductID, which is the primary key. ProductID is also a foreign key that references to Product table. CPU has two additional attributes, socket and TDP. Socket is the socket type of the CPU and TDP is the thermal design power that the CPU can take.
+​	CPU is a sub-entity of Product and is uniquely identified by ProductID, which is the primary key. ProductID is also a foreign key that references to Product table. CPU has two additional attributes, socket and TDP. Socket is the socket type of the CPU and TDP is the thermal design power that the CPU can take.
 
 
 
 ## Motherboard: 
 
-​	Motherboard is a sub-entity of Product, it is uniquely identified by ProductID, which is the primary key. ProductID is also a foreign key that references to Product table. Motherboard has three additional attributes: socket, supportMemoryType, and ChipSet. Socket is the socket type for the MotherBoard which is used to adapt with CPU. SupportMemoryType is the Memory socket type which is used to adapt with Memory. ChipSet is an important parameter of the modern motherboeard.
+​	Motherboard is a sub-entity of Product and is uniquely identified by ProductID, which is the primary key. ProductID is also a foreign key that references to Product table. Motherboard has three additional attributes: socket, supportMemoryType, and ChipSet. Socket is the socket type for the MotherBoard which is used to adapt with CPU. SupportMemoryType is the Memory socket type which is used to adapt with Memory. ChipSet is an important parameter of the modern motherboeard.
 
 
 
