@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #D9D9D9;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none
+    }
+
+    li {
+        list-style: none
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .nav .navitems ul li {
+        float: left;
+    }
+
+    .nav {
+        height: 100px;
+        width: 1920px;
+        background-color: #4751AC;
+    }
+
+    .pl {
+        margin-top: 150px;
+        margin-left: 20px;
+        height: 500px;
+        width: 300px;
+        background-color: #4751AC;
+        float: left;
+    }
+
+    .title {
+        float: left;
+        margin-left: 30px;
+        margin-right: 100px;
+        height: 100px;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .nav .navitems ul .tools {
+        margin-right: 40px;
+        margin-left: 40px;
+        width: 250px;
+        height: 100px;
+        font-size: 45px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .pl .product {
+        width: 300px;
+        height: 80px;
+        font-size: 45px;
+        text-align: center;
+        line-height: 80px;
+        color: #fff;
+    }
+
+    .pbtn {
+        width: 290px;
+        height: 100px;
+        border: none;
+        border-radius: 15px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        font-size: 30px;
+        background-color: rgb(147, 147, 147);
+        font-weight: 700;
+    }
+
+    .pbtn:hover {
+        background-color: #fff;
+    }
+
+    .dropdown {
+        float: left;
+        width: 174px;
+        height: 100px;
+        margin-right: 40px;
+        margin-left: 40px;
+        overflow: hidden;
+    }
+
+    .ADdropdown {
+        float: left;
+        width: 200px;
+        height: 100px;
+        margin-right: 40px;
+        margin-left: 40px;
+        overflow: hidden;
+    }
+
+    .nav .dropdown .dt {
+        height: 100px;
+        width: 174px;
+        color: #fff;
+
+        font-size: 45px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .nav .ADdropdown .dt {
+        height: 100px;
+        width: 175px;
+        color: #fff;
+
+        font-size: 45px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .nav .dropdown .dt:hover {
+        cursor: pointer;
+    }
+
+    .nav .ADdropdown .dt:hover {
+        cursor: pointer;
+    }
+
+    .dropdown .dd ul li button{
+        display: block;
+        width: 174px;
+        height: 60px;
+        font-size: 25px;
+        background-color: #4751AC;
+        text-align: center;
+        line-height: 60px;
+        border: none;
+        color: #fff;
+    }
+
+    .ADdropdown .dd ul li button{
+        display: block;
+        width: 174px;
+        height: 60px;
+        font-size: 15px;
+        background-color: #4751AC;
+        text-align: center;
+        line-height: 25px;
+        border: none;
+        color: #fff;
+    }
+
+    .dd ul li button:hover{
+        background-color: #5d66bb;
+    }
+    
+    .dropdown:hover {
+        overflow: visible;
+    }
+
+    .ADdropdown:hover {
+        overflow: visible;
+    }
+
+    table {
+        margin-top: 30px;
+        margin-left: 350px;
+        width: 1500px;
+        height: 800px;
+        background-color: #fff;
+        
+    }
+
+    .dd {
+        position: relative;
+    }
+
+    .ADdropdown .dd ul li button {
+        width: 200px;
+        height: 120px;
+    }
+
+    .hide{
+            display: none;
+    }
+    .c1{
+        position: fixed;
+        top:0;
+        bottom: 0;
+        left:0;
+        right: 0;
+        background: rgba(0,0,0,.5);
+        z-index: 2;
+    }
+    .c2{
+        background-color: white;
+        position: fixed;
+        width: 400px;
+        height: 300px;
+        top:50%;
+        left: 50%;
+        z-index: 3;
+        margin-top: -150px;
+        margin-left: -200px;
+    }
+	#modal p {
+		margin-left:80px;
+	}
+
+    .addbtn {
+        display: block;
+        width: 100px;
+        height: 60px;
+        font-size: 25px;
+        background-color: #4751AC;
+        text-align: center;
+        line-height: 60px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+    }
+
+    .addbtn:hover{
+        background-color: #5d66bb;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .container {
+        width: 500px;
+        height: 50px;
+        margin: 30px auto;
+    }
+
+    .parent {
+        width: 100%;
+        height: 42px;
+        top: 4px;
+        position: relative;
+    }
+
+    .parent>input:first-of-type {
+        width: 380px;
+        height: 40px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .parent>input:first-of-type:focus {
+        border: 1px solid #5d66bb;
+        padding-left: 10px;
+    }
+
+    .parent>input:last-of-type {
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        background: #5d66bb;
+        border: 1px solid #5d66bb;
+        color: #fff;
+        font-size: 16px;
+        outline: none;
+    }
+
+    #searchbtn {
+        cursor: pointer;
+    }
+
+    
+</style>
+<body>
+
+    <div id="shade" class="c1 hide"></div>
+    <div id="addcpudialog" class="c2 hide">
+        <p class="addcpu">ProductId: <input type="text" id="pid" /></p>
+        <p class="addcpu">BrandName: <input type="text" id="bnm" /></p>
+        <p class="addcpu">ProductName: <input type="text" id="pnm"/></p>
+        <p class="addcpu">CodeName: <input type="text" id="cnm"/></p>
+        <p class="addcpu">Cores: <input type="text" id="cor"/></p>
+        <p class="addcpu">Clock: <input type="text" id="clo"/></p>
+        <p class="addcpu">CPUSocket: <input type="text" id="cso"/></p>
+        <p class="addcpu">CPUProcess: <input type="text" id="cpr"/></p>
+        <p class="addcpu">L3_Cache: <input type="text" id="l3c"/></p>
+        <p class="addcpu">TDP: <input type="text" id="tdp"/></p>
+        <p class="addcpu">ReleaseYear: <input type="text" id="ryr"/></p>
+        <p>
+            <input type="button" value="Submit" class="addbtn" id="submit-task">
+            <input type="button" value="Cancel" onclick="Hide();" class="addbtn">
+        </p>
+    </div>
+     
+    <script>
+        function Show(){
+            document.getElementById('shade').classList.remove('hide');
+            document.getElementById('addcpudialog').classList.remove('hide');
+        }
+         function Hide(){
+            document.getElementById('shade').classList.add('hide');
+            document.getElementById('addcpudialog').classList.add('hide');
+        }
+    </script>
+
+
+    <div class="nav">
+        <div class="title">PC BUILDER</div>
+        <div class="dropdown">
+            <div class="dt">
+                Add Data
+            </div>
+            <div class="dd">
+                <ul>
+                    <li>
+                        <button id="add_cpu" onclick="Show();">CPU</button>
+                    </li>
+                    <li>
+                        <button id="add_gpu">GPU</button>
+                    </li>
+                    <li>
+                        <button id="add_ram">RAM</button>
+                    </li>
+                    <li>
+                        <button id="add_mob">MotherBoard</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="navitems">
+            <ul>
+                <li class="tools" style="width: 200px;"><a href="#">Adaptation</a></li>
+                <li class="tools" style="width: 140px;"><a href="#">Sort By</a></li>
+                <li class="tools" style="width: 100px;"><a href="#">Filter</a></li>
+                <li class="tools" style="width: 85px;"><a href="#">User</a></li>
+            </ul>
+        </div>
+
+        <div class="ADdropdown">
+            <div class="dt">
+                Advanced query
+            </div>
+            <div class="dd">
+                <ul>
+                    <li>
+                        <button id="ADquery1"> Adapted CPU for "ASUS TUF X470 ATX" </button>
+                    </li>
+                    <li>
+                        <button id="ADquery2"> Adapted MotherBoard for "Ryzen 7 5700X serise" </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="" class="parent">
+        <input type="text" placeholder="Search a key word for any attribute" id="livebox" name="query">
+        <input type="button" value="Search" id="searchbtn" class="search">
+        </form>
+    </div>
+
+    <div class="pl">
+        <ul>
+            <li class="product">
+                Products:
+            </li>
+            <li>
+                <button class="pbtn" id="show_cpu">CPU</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_gpu">GPU</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_ram">RAM</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_mob">MotherBoard</button>
+            </li>
+            
+        </ul>
+    </div>
+
+
+    <table id="table_container">
+        <thead>
+            
+            <tr>
+                {% for key in keys %}
+                <th>{{key}}</th>
+                {% endfor %}
+            </tr>
+            
+        </thead>
+
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{item.ProductId}}</td>
+                <td>{{item.BrandName}}</td>
+                <td>{{item.ProductName}}</td>
+                <td>{{item.CodeName}}</td>
+                <td>{{item.Cores}}</td>
+                <td>{{item.Clock}}</td>
+                <td>{{item.CPUSocket}}</td>
+                <td>{{item.CPUProcess}}</td>
+                <td>{{item.L3_Cache}}</td>
+                <td>{{item.TDP}}</td>
+                <td>{{item.ReleaseYear}}</td>
+                <td><button  data-source="{{item.id}}" onclick="Show();">Edit</button></td>
+                <td><button class="remove" data-source="{{item.ProductId}}" type="button">Delete</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='../static/script/modal.js') }}"></script>
+
+</html>
