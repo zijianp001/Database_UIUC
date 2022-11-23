@@ -1,0 +1,9 @@
+runtime: python310
+
+instance_class: F1
+
+env_variables:
+  MYSQL_USER: 'root'
+  MYSQL_PASSWORD: '1234'
+  MYSQL_DB: 'pc411'
+  MYSQL_HOST: 'localhost'
