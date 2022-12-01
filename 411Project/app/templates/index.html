@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/script/style/index.css">
+    <title>Main Page</title>
+</head>
+
+<body>
+    <!-- Add Dialog -->
+    <div id="shade" class="c1 hide"></div>
+    <div id="addcpudialog" class="c2 hide">
+        {% for key in keys %}
+            <p class="addcpu">{{key}}: <input type="text" id="add{{key}}"/></p>
+        {% endfor %}
+        <p>
+            <input type="button" value="Submit" class="addbtn" id="submit-task">
+            <input type="button" value="Cancel" onclick="Hide();" class="addbtn">
+        </p>
+    </div>
+     
+    <script>
+        function Show(){
+            document.getElementById('shade').classList.remove('hide');
+            document.getElementById('addcpudialog').classList.remove('hide');
+        }
+         function Hide(){
+            document.getElementById('shade').classList.add('hide');
+            document.getElementById('addcpudialog').classList.add('hide');
+        }
+    </script>
+
+
+    <!-- Edit Dialog -->
+    <div id="editshade" class="c1 edithide"></div>
+    <div id="editcpudialog" class="c2 edithide">
+        {% for key in keys %}
+            {% if 'ProductId' in key  %}
+                <p class="editcpu">{{key}}: <input type="text" id="edit{{key}}" readonly='readonly'/></p>
+            {% elif 'ProductType' in key %}
+                <p class="editcpu">{{key}}: <input type="text" id="edit{{key}}" readonly='readonly'/></p>
+            {% else %}
+                <p class="editcpu">{{key}}: <input type="text" id="edit{{key}}"/></p>
+            {% endif %}
+        {% endfor %}
+        <p>
+            <input type="button" value="Submit" class="editbtn" id="submit-edit">
+            <input type="button" value="Cancel" onclick="Edit_Hide();" class="editbtn" id="cancel-edit">
+        </p>
+    </div>
+
+    <script>
+        function Edit_Show(){
+            document.getElementById('editshade').classList.remove('edithide');
+            document.getElementById('editcpudialog').classList.remove('edithide');
+            document.getElementById('cancel-edit').style.display = "block";
+            document.getElementById('editshade').style.display = "block";
+        }
+         function Edit_Hide(){
+            document.getElementById('editshade').classList.add('edithide');
+            document.getElementById('editcpudialog').classList.add('edithide');
+            document.getElementById('cancel-edit').style.display = "none";
+            document.getElementById('editshade').style.display = "none";
+        }
+    </script>
+
+
+
+    <!-- adapt motherboard -->
+    <div id="adapt_background" class="back">
+		<div id="adapt_div1" class="content">
+			<div id="close">
+				<span id="adapt_close_button">×</span>
+			</div>
+			<div id="adapt_div2">
+                <p id="adapt_title">Find all adapted MotherBoard for your CPU </p>
+                <p id="adapt_sentence1"> Please input the CPU name, this result will show you only adapted MotherBoards </p>
+                <input type="text" class="adapt_input" id="adquery1_input">
+                <input type="submit" class="adapt_submit" id="ADquery1">
+                <p id="adapt_sentence2" > Please input the CPU name, this result will show you all adapted MotherBoards with recommendation level </p>
+                <input type="text" class="adapt_input" id="adquery1_input_sp">
+                <input type="submit" class="adapt_submit" id="ADquery1_sp">
+			</div>
+			<h3 id="adapt_foot"></h3>
+		</div>
+	</div>
+
+
+    <!-- adapt cpu -->
+    <div id="adapt_cpu_background" class="back">
+		<div id="adapt_cpu_div1" class="content">
+			<div id="cpu_close">
+				<span id="adapt_cpu_close_button">×</span>
+			</div>
+			<div id="adapt_cpu_div2">
+                <p id="adapt_cpu_title">Find the number of adapted CPU Process group based on your Mother Board </p>
+                <p id="adapt_cpu_sentence1"> Please input the MotherBoard name, this result will show you only adapted CPU Process group and count </p>
+                <input type="text" class="adapt_input" id="adquery2_input">
+                <input type="submit" class="adapt_submit" id="ADquery2">
+                <p id="adapt_cpu_sentence2" > Please input the MotherBoard name, this result will show you adapted CPU Process group with count and the process level </p>
+                <input type="text" class="adapt_input" id="adquery2_input_sp">
+                <input type="submit" class="adapt_submit" id="ADquery2_sp">
+			</div>
+			<h3 id="adapt_cpu_foot"></h3>
+		</div>
+	</div>
+
+
+    <!-- 紫色导航栏 -->
+    <div class="nav">
+        <div class="title">PC BUILDER</div>
+
+        <!-- Add Data 下拉菜单 -->
+        <div class="dropdown">
+            <div class="dt" onclick="Show();">
+                Add Data
+            </div>
+            <div class="dd">
+                <!-- <ul>
+                    <li>
+                        <button id="add_cpu" onclick="Show();">CPU</button>
+                    </li>
+                    <li>
+                        <button id="add_gpu">GPU</button>
+                    </li>
+                    <li>
+                        <button id="add_ram">RAM</button>
+                    </li>
+                    <li>
+                        <button id="add_mob">MotherBoard</button>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+
+        
+        <div class="navitems">
+            <ul>
+                <li class="tools" style="width: 200px;"><a href="#">Welcome</a></li>
+                <li class="tools" style="width: 150px;"><a href="#">Cart</a></li>
+                <li class="tools" style="width: 200px;"><a href="#">Home</a></li>
+                <li class="tools" style="width: 85px;"><a href="#">User</a></li>
+            </ul>
+        </div>
+
+        <!-- Advanced 下拉菜单 -->
+        <div class="ADdropdown">
+            <div class="dt">
+                Adaptation
+            </div>
+            <div class="dd">
+                <ul>
+                    <li>
+                        <button id="adapt_open_btn"> Find adapted MotherBoard base on CPU </button>
+                    </li>
+                    <li>
+                        <button id="adapt_open_btn2"> Find adapted CPU attribute base on MotherBoard </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="container">
+        <form action="" class="parent">
+        <input type="text" placeholder="Search a key word for any attribute" id="livebox" name="query">
+        <input type="button" value="Search" id="searchbtn" class="search">
+        </form>
+    </div>
+
+    <!-- 复选框 -->
+    <div class="checkbox">
+        <ul>
+            <li><input type="checkbox" id="CPU" name="chk" onClick="chooseOne(this)">CPU</li>
+            <li><input type="checkbox" id="GPU" name="chk" onClick="chooseOne(this)">GPU</li>
+            <li><input type="checkbox" id="RAM" name="chk" onClick="chooseOne(this)">RAM</li>
+            <li><input type="checkbox" id="MotherBoard" name="chk" onClick="chooseOne(this)">MotherBoard</li>
+        </ul>
+    </div>
+    <script>
+        function chooseOne(chk){
+            var obj = document.getElementsByName("chk");
+            for (i=0; i<obj.length; i++){
+                if (obj[i]!=chk) 
+                    obj[i].checked = false;
+                else {
+                    obj[i].checked = true;
+                }
+            }
+        }
+    </script>
+
+
+    <!-- Product list -->
+    <div class="pl">
+        <ul>
+            <li class="product">
+                Products:
+            </li>
+            <li>
+                <button class="pbtn" id="show_cpu">CPU</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_gpu">GPU</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_ram">RAM</button>
+            </li>
+            <li>
+                <button class="pbtn" id="show_mob">MotherBoard</button>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- 表格 -->
+    <table id="table_container">
+        <thead>
+            
+            <tr>
+                {% for key in keys %}
+                <th>{{key}}</th>
+                {% endfor %}
+            </tr>
+            
+        </thead>
+
+        <tbody>
+        {% for item in items %}
+            <tr>
+                {% for key in keys %}
+                    {% if key == 'ProductId' %}
+                        <td>{{(item[key])|int}}</td>
+                    {% else %}
+                        <td>{{item[key]}}</td>
+                    {% endif %}
+                {% endfor %}
+                <td><button onclick="Edit_Show();" data-bs-target="#cancel-edit" data-bs-toggle="modal" data-source="{{item.ProductId}}" data-content="{{item}}">Edit</button></td>
+                <td><button class="remove" data-source="{{item.ProductId}}" type="button">Delete</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='../static/script/modal.js') }}"></script>
+<script src="../static/script/adapt_dialog.js"></script>
+
+</html>
