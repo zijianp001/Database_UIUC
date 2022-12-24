@@ -1,4 +1,4 @@
 # Q-Team103-GeniusProgrammers
-This is a template for CS411 database project repository.
+This is the repository for CS411 database project.
 
 
